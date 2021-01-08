@@ -1,23 +1,50 @@
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
 import { ConfigService } from './service/config.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RoutingModule } from './routing/routing.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LanguageService } from './service/language.service';
+import { CommonModule } from '@angular/common';
 
-const initializeConfigs = (
-  appConfig: ConfigService,
-): (() => Promise<void>) => () => appConfig.load();
+const initConfigs = (appConfig: ConfigService) => (): Promise<void> =>
+  appConfig.load();
+
+const initLang = (lang: LanguageService) => (): Promise<void> => lang.load();
+
+const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
+  new TranslateHttpLoader(http);
 
 @NgModule({
-  imports: [HttpClientModule, RoutingModule],
-  exports: [HttpClientModule, RoutingModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RoutingModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'it',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+  ],
+  exports: [HttpClientModule, RoutingModule, TranslateModule],
   providers: [
     ConfigService,
+    LanguageService,
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     {
       provide: APP_INITIALIZER,
-      useFactory: initializeConfigs,
+      useFactory: initConfigs,
       deps: [ConfigService],
+      multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initLang,
+      deps: [LanguageService],
       multi: true,
     },
   ],

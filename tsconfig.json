@@ -7,6 +7,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
@@ -22,7 +24,7 @@
       "@core": ["src/app/core/index.ts"],
       "@env": ["src/environments/environment.ts"],
       "@model": ["src/app/shared/model/index.ts"],
-      "@utils": ["src/app/shared/utils/index.ts"],
+      "@utils": ["src/app/shared/utils/index.ts"]
     }
   },
   "angularCompilerOptions": {

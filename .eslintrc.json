@@ -8,7 +8,10 @@
         "project": ["tsconfig.*?.json", "e2e/tsconfig.json"],
         "createDefaultProgram": true
       },
-      "plugins": ["prettier"],
+      "plugins": [
+        "prettier",
+        "@typescript-eslint"
+      ],
       "extends": [
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
@@ -29,6 +32,16 @@
             "type": "element",
             "prefix": "app",
             "style": "kebab-case"
+          }
+        ],
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/explicit-module-boundary-types": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-inferrable-types": [
+          "error",
+          {
+            "ignoreParameters": true,
+            "ignoreProperties": false
           }
         ],
         "prettier/prettier": "error"

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LanguageService } from './core/service/language.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'angular-boilerplate';
+  constructor(private languageService: LanguageService) {}
+
+  selectLanguage(language: string): void {
+    this.languageService.useRaw(language);
+  }
 }

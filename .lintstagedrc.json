@@ -1,5 +1,5 @@
 {
-  "src/**/*.{ts,js}": [
+  "src/**/*.{ts,js,html}": [
     "yarn run fix",
     "yarn run lint",
     "git add"

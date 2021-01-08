@@ -9,7 +9,7 @@ export class ConfigService {
   constructor(private http: HttpClient) {}
 
   load(): Promise<void> {
-    const jsonFile = `assets/configs/config.${environment.name}.json`;
+    const jsonFile = `assets/config/config.${environment.name}.json`;
 
     return new Promise<void>((resolve, reject) => {
       this.http

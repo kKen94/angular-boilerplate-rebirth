@@ -1,0 +1,16 @@
+{
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-prettier"
+  ],
+  "rules": {
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind"]
+      }
+    ]
+  }
+}

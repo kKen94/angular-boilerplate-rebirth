@@ -1,0 +1,19 @@
+@import 'variables';
+
+@each $color in $colors {
+  .btn-#{$color} {
+    @apply px-4;
+    @apply py-2;
+    @apply border;
+    @apply border-gray-200;
+    @apply rounded;
+    @apply bg-transparent;
+    @apply text-#{$color}-500;
+
+    transition: 300ms;
+
+    &:active {
+      @apply bg-#{$color}-100;
+    }
+  }
+}

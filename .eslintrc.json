@@ -1,0 +1,58 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.*?.json", "e2e/tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "plugins": ["prettier"],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "prettier"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "prettier/prettier": "error"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    },
+    {
+      "files": ["src/**/*.spec.ts", "src/**/*.d.ts"],
+      "parserOptions": {
+        "project": "./tsconfig.spec.json"
+      },
+      // Jasmine rules
+      "extends": ["plugin:jasmine/recommended"],
+      // Plugin to run Jasmine rules
+      "plugins": ["jasmine"],
+      "env": { "jasmine": true },
+      // Turn off 'no-unused-vars' rule
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off"
+      }
+    }
+  ]
+}

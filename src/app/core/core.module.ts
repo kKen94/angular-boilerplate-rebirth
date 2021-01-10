@@ -6,6 +6,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageService } from './service/language.service';
 import { CommonModule } from '@angular/common';
+import { NgxProgressHttpModule } from '@kken94/ngx-progress';
 
 const initConfigs = (appConfig: ConfigService) => (): Promise<void> =>
   appConfig.load();
@@ -18,6 +19,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
 @NgModule({
   imports: [
     CommonModule,
+    NgxProgressHttpModule,
     HttpClientModule,
     RoutingModule,
     TranslateModule.forRoot({
@@ -29,7 +31,12 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
       },
     }),
   ],
-  exports: [HttpClientModule, RoutingModule, TranslateModule],
+  exports: [
+    NgxProgressHttpModule,
+    HttpClientModule,
+    RoutingModule,
+    TranslateModule,
+  ],
   providers: [
     ConfigService,
     LanguageService,

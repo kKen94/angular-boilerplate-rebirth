@@ -1582,6 +1582,13 @@
     merge-source-map "^1.1.0"
     schema-utils "^2.7.0"
 
+"@kken94/ngx-progress@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@kken94/ngx-progress/-/ngx-progress-2.1.1.tgz#e755f647e5f34e9a2be25295781319f2174e6a42"
+  integrity sha512-kSvDwPh4iijZYLnV/5Nz3Aogmyej7pE22HT9KPDBGMtTn+UecN3g87G6/lVOm82gop4wUQWcltPHdehP+wpq0Q==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@10.2.1":
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-10.2.1.tgz#4b360993f784244c7d7a62f40312e9eee2a24cc5"

@@ -1,12 +1,17 @@
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
 import { ConfigService } from './service/config.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { RoutingModule } from './routing/routing.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageService } from './service/language.service';
 import { CommonModule } from '@angular/common';
 import { NgxProgressHttpModule } from '@kken94/ngx-progress';
+import { ErrorInterceptor } from './interceptor/error.interceptor';
 
 const initConfigs = (appConfig: ConfigService) => (): Promise<void> =>
   appConfig.load();
@@ -40,7 +45,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
   providers: [
     ConfigService,
     LanguageService,
-    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     {
       provide: APP_INITIALIZER,

@@ -1,9 +1,4 @@
-<div style="position: relative">
+<div class='relative'>
   <ngx-progress></ngx-progress> <!-- https://github.com/kKen94/ngx-progress -->
-  <div>
-    <h1 translate>APP.TEST</h1>
-
-    <button class='btn-green' (click)='selectLanguage("it")'>IT</button>
-    <button class='btn-blue'  (click)='selectLanguage("en")'>EN</button>
-  </div>
+  <router-outlet></router-outlet>
 </div>

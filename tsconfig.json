@@ -24,6 +24,7 @@
       "@core": ["src/app/core/index.ts"],
       "@env": ["src/environments/environment.ts"],
       "@model": ["src/app/shared/model/index.ts"],
+      "@module/*": ["src/app/module/*"],
       "@utils": ["src/app/shared/utils/index.ts"]
     }
   },

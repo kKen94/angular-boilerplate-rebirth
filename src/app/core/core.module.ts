@@ -5,13 +5,15 @@ import {
   HttpClient,
   HttpClientModule,
 } from '@angular/common/http';
-import { RoutingModule } from './routing/routing.module';
+import { CoreRoutingModule } from './routing/core-routing.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageService } from './service/language.service';
 import { CommonModule } from '@angular/common';
 import { NgxProgressHttpModule } from '@kken94/ngx-progress';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
+import { TokenInterceptor } from './interceptor/token.interceptor';
+import { AuthGuard } from './guard/auth.guard';
 
 const initConfigs = (appConfig: ConfigService) => (): Promise<void> =>
   appConfig.load();
@@ -26,7 +28,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
     CommonModule,
     NgxProgressHttpModule,
     HttpClientModule,
-    RoutingModule,
+    CoreRoutingModule,
     TranslateModule.forRoot({
       defaultLanguage: 'it',
       loader: {
@@ -39,14 +41,15 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
   exports: [
     NgxProgressHttpModule,
     HttpClientModule,
-    RoutingModule,
     TranslateModule,
+    CoreRoutingModule,
   ],
   providers: [
+    AuthGuard,
     ConfigService,
     LanguageService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    // { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     {
       provide: APP_INITIALIZER,
       useFactory: initConfigs,

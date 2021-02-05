@@ -1,3 +1,7 @@
 {
-  "MODULE.USER.HELLO": "Modulo utenti funzionante"
+  "MODULE.USER.HELLO": "Modulo utenti funzionante",
+  "MODULE.AUTH.LOGIN": "Login",
+  "MENU": "Menu",
+  "MENU.USERS": "Utenti",
+  "MENU.DASHBOARD": "Dashboard"
 }

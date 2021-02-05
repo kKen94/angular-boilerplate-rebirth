@@ -1,3 +1,7 @@
 {
-  "MODULE.USER.HELLO": "Easter egg!"
+  "MODULE.USER.HELLO": "Easter egg!",
+  "MODULE.AUTH.LOGIN": "Login",
+  "MENU": "Menu",
+  "MENU.USERS": "Users",
+  "MENU.DASHBOARD": "Dashboard"
 }

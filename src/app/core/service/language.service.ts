@@ -7,7 +7,8 @@ export class LanguageService {
   constructor(private translate: TranslateService) {}
 
   load(): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>(resolve => {
+      this.translate.addLangs(['it', 'en']);
       this.use(Language.IT);
       // TODO: inserire logica per recuperare eventualmente dalla session storage la lingua
       resolve();

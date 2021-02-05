@@ -1,0 +1,21 @@
+<ng-container *ngFor="let item of menu">
+  <a
+    *ngIf="item.visible"
+    class="menu"
+    (click)="goTo(item.routerLink)"
+    [class.bg-coolgray-200]="router.url.includes(item.routerLink)"
+  >
+    <div class="full flex flex-row items-center justify-start">
+      <div
+        class="pl-1 h-full"
+        [class.bg-gray-700]="router.url.includes(item.routerLink)"
+      ></div>
+      <mat-icon
+        class="mx-3"
+        [svgIcon]="item.iconName"
+        aria-hidden="false"
+      ></mat-icon>
+      <p translate>{{ item.id }}</p>
+    </div>
+  </a>
+</ng-container>

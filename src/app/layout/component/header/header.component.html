@@ -1,0 +1,59 @@
+<header class="full flex flex-row justify-between">
+  <img
+    alt="logo"
+    src="assets/images/logo.svg"
+    class="max-h-full max-w-none cursor-pointer m-1"
+    (click)="goHome()"
+  />
+  <div class="flex">
+    <button matRipple class="flex justify-center items-center pl-2">
+      <img
+        alt="logo"
+        src="assets/images/no_avatar.jpg"
+        class="w-12 h-12 rounded-full"
+      />
+      <p class="text-sm mx-2">{{ username || 'John Doe' }}</p>
+    </button>
+    <div>
+      <button
+        matRipple
+        [matMenuTriggerFor]="menu"
+        class="w-16 h-16 border-l border-r flex flex-row items-center justify-evenly"
+      >
+        <img
+          [alt]="lang + 'flag'"
+          [src]="'assets/images/flag/' + lang.toUpperCase() + '.svg'"
+        />
+        <p>{{ lang.toUpperCase() }}</p>
+      </button>
+    </div>
+    <div>
+      <button
+        matRipple
+        class="w-16 h-16 border-l border-r flex flex-row items-center justify-evenly"
+        (click)="openPanel()"
+      >
+        <!-- TODO: lo stile qui fa cagare ma sovrascrivere material è un dito nel culo -->
+        <mat-icon class="text-3xl" style="height: 2rem; width: 2rem">
+          list
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+</header>
+
+<mat-menu #menu="matMenu">
+  <button
+    *ngFor="let iterationLang of langs"
+    mat-menu-item
+    (click)="setLang(iterationLang)"
+    class="flex-row items-center justify-evenly"
+    style="display: flex"
+  >
+    <img
+      [alt]="iterationLang + 'flag'"
+      [src]="'assets/images/flag/' + iterationLang.toUpperCase() + '.svg'"
+    />
+    <p>{{ iterationLang.toUpperCase() }}</p>
+  </button>
+</mat-menu>

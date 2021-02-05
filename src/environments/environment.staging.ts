@@ -5,4 +5,14 @@ export const environment: Environment = {
   name: 'staging',
   production: false,
   staging: true,
+  apiBasePath: 'https://',
+  keycloackConfig: {
+    clientId: '',
+    realm: '',
+    url: '',
+  },
+  keycloackTokenUrl: '',
+  keycloakLoginOptions: {
+    redirectUri: '',
+  },
 };

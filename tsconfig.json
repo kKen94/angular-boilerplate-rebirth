@@ -8,7 +8,7 @@
     "strict": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
-    "strictPropertyInitialization": true,
+    "strictPropertyInitialization": false,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
@@ -25,6 +25,7 @@
       "@env": ["src/environments/environment.ts"],
       "@model": ["src/app/shared/model/index.ts"],
       "@module/*": ["src/app/module/*"],
+      "@tailwind-config": ["tailwind.config.js"],
       "@utils": ["src/app/shared/utils/index.ts"]
     }
   },

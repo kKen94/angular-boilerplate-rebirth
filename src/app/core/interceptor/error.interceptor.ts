@@ -1,4 +1,5 @@
 import {
+  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
@@ -6,24 +7,28 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SweetHelper } from '@utils';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { from, Observable, throwError } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+import { KeycloakService } from 'keycloak-angular';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private keycloakAngular: KeycloakService) {}
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler,
   ): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
-      catchError(err => {
+      catchError((err: HttpErrorResponse) => {
+        SweetHelper.fireToast(err.message, 'error');
+
         if (err.status === 401) {
-          // auto logout if 401 response returned from api
+          return from(this.keycloakAngular.logout()).pipe(
+            switchMap(() => throwError(err.message)),
+          );
         }
 
-        SweetHelper.fireToast(err.message, 'error');
         return throwError(err.message);
       }),
     );

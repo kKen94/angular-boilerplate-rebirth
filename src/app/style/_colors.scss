@@ -1,0 +1,210 @@
+$black: #293133;
+$white: #fff;
+
+$green-primary: (
+  50: #eaf3ec,
+  100: #cae1ce,
+  200: #a7cdae,
+  300: #84b98e,
+  400: #69aa75,
+  500: #4f9b5d,
+  600: #489355,
+  700: #3f894b,
+  800: #367f41,
+  900: #266d30,
+  a100: #b1ffbb,
+  a200: #7eff8e,
+  a400: #4bff62,
+  a700: #31ff4c,
+);
+
+$green-primary-contrast: (
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $black,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    a100: $black,
+    a200: $black,
+    a400: $black,
+    a700: $black,
+  ),
+);
+
+$green-secondary: (
+  50: #f1faea,
+  100: #ddf2ca,
+  200: #c6e9a7,
+  300: #afe083,
+  400: #9eda69,
+  500: #8dd34e,
+  600: #85ce47,
+  700: #7ac83d,
+  800: #70c235,
+  900: #5db725,
+  a100: #f8fff4,
+  a200: #d7ffc1,
+  a400: #b6ff8e,
+  a700: #a6ff74,
+);
+
+$green-secondary-contrast: (
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $black,
+    500: $black,
+    600: $black,
+    700: $black,
+    800: $black,
+    900: $black,
+    a100: $black,
+    a200: $black,
+    a400: $black,
+    a700: $black,
+  ),
+);
+
+$blue-primary: (
+  50: #e6eff0,
+  100: #c0d8d8,
+  200: #96bebf,
+  300: #6ca4a5,
+  400: #4d9191,
+  500: #2d7d7e,
+  600: #287576,
+  700: #226a6b,
+  800: #1c6061,
+  900: #114d4e,
+  a100: #87fdff,
+  a200: #54fcff,
+  a400: #21fbff,
+  a700: #08fbff,
+);
+
+$blue-primary-contrast: (
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $white,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    a100: $black,
+    a200: $black,
+    a400: $black,
+    a700: $black,
+  ),
+);
+
+$blue-secondary: (
+  50: #e8f7f6,
+  100: #c6ece8,
+  200: #a1dfd9,
+  300: #7bd2ca,
+  400: #5ec8be,
+  500: #42beb3,
+  600: #3cb8ac,
+  700: #33afa3,
+  800: #2ba79a,
+  900: #1d998b,
+  a100: #d3fff9,
+  a200: #a0fff3,
+  a400: #6dffec,
+  a700: #53ffe9,
+);
+
+$blue-secondary-contrast: (
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $black,
+    500: $black,
+    600: $black,
+    700: $black,
+    800: $black,
+    900: $white,
+    a100: $black,
+    a200: $black,
+    a400: $black,
+    a700: $black,
+  ),
+);
+
+$red-primary: (
+  50: #ffebee,
+  100: #ffcdd2,
+  200: #ef9a9a,
+  300: #e57373,
+  400: #ef5350,
+  500: #f44336,
+  600: #e53935,
+  700: #d32f2f,
+  800: #c62828,
+  900: #b71c1c,
+  a100: #ff8a80,
+  a200: #ff5252,
+  a400: #ff1744,
+  a700: #d50000,
+);
+
+$red-primary-contrast: (
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $black,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    a100: $black,
+    a200: $white,
+    a400: $white,
+    a700: $white,
+  ),
+);
+
+$green-primary-material: map-merge($green-primary, $green-primary-contrast);
+$green-secondary-material: map-merge(
+  $green-secondary,
+  $green-secondary-contrast
+);
+$blue-primary-material: map-merge($blue-primary, $blue-primary-contrast);
+$blue-secondary-material: map-merge($blue-secondary, $blue-secondary-contrast);
+$red-primary-material: map-merge($red-primary, $red-primary-contrast);
+
+$cc: (
+  'green': $green-primary,
+  'blue': $blue-primary,
+  'red': $red-primary,
+);
+
+@each $color-name, $color-map in $cc {
+  @each $key, $value in $color-map {
+    :root {
+      --#{$color-name}-#{$key}: #{$value};
+    }
+  }
+}
+
+:root {
+  --black: #{$black};
+  --white: #{$white};
+}

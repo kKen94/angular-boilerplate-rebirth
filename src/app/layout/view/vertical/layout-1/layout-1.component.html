@@ -1,0 +1,15 @@
+<div class="full flex">
+  <div class="full flex flex-col">
+    <app-header class="flex header"></app-header>
+    <div class="flex-auto flex max-h-full overflow-hidden">
+      <app-navbar-vertical class="aside-vertical"></app-navbar-vertical>
+      <main class="flex-auto bg-coolgray-200 overflow-auto">
+        <app-content></app-content>
+      </main>
+      <app-quick-panel
+        *ngIf="isPanelOpen"
+        class="quick-panel"
+      ></app-quick-panel>
+    </div>
+  </div>
+</div>

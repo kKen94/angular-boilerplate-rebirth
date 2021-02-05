@@ -1,8 +1,4 @@
 {
-  "src/**/*.{ts,js,html}": [
-    "yarn run fix:eslint",
-    "yarn run lint:code",
-    "git add"
-  ],
+  "src/**/*.{ts,js,html}": ["yarn run fix:code:staged", "git add"],
   "src/**/*.scss": ["yarn run fix:style", "git add"]
 }

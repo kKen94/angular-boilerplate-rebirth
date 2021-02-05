@@ -1,5 +1,4 @@
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
-import { ConfigService } from './service/config.service';
 import {
   HTTP_INTERCEPTORS,
   HttpClient,
@@ -12,13 +11,20 @@ import { LanguageService } from './service/language.service';
 import { CommonModule } from '@angular/common';
 import { NgxProgressHttpModule } from '@kken94/ngx-progress';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
-import { TokenInterceptor } from './interceptor/token.interceptor';
 import { AuthGuard } from './guard/auth.guard';
+import { LayoutModule } from '../layout';
 
-const initConfigs = (appConfig: ConfigService) => (): Promise<void> =>
-  appConfig.load();
+import { IconsService } from './service/icons.service';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakCustomService } from './service/keycloak-custom.service';
 
 const initLang = (lang: LanguageService) => (): Promise<void> => lang.load();
+
+const initIcon = (icon: IconsService) => (): Promise<void> => icon.load();
+
+const initKeycloak = (
+  keycloak: KeycloakCustomService,
+) => (): Promise<boolean> => keycloak.load();
 
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
   new TranslateHttpLoader(http);
@@ -26,6 +32,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
 @NgModule({
   imports: [
     CommonModule,
+    LayoutModule,
     NgxProgressHttpModule,
     HttpClientModule,
     CoreRoutingModule,
@@ -43,23 +50,31 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
     HttpClientModule,
     TranslateModule,
     CoreRoutingModule,
+    LayoutModule,
   ],
   providers: [
+    KeycloakService,
+    KeycloakCustomService,
     AuthGuard,
-    ConfigService,
     LanguageService,
+    IconsService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initConfigs,
-      deps: [ConfigService],
-      multi: true,
-    },
     {
       provide: APP_INITIALIZER,
       useFactory: initLang,
       deps: [LanguageService],
+      multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initIcon,
+      deps: [IconsService],
+      multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initKeycloak,
+      deps: [KeycloakCustomService],
       multi: true,
     },
   ],

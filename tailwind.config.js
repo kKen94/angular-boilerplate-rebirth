@@ -1,13 +1,9 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  // purge: {
-  //   content: ['./src/**/*.{ts,js,html}'],
-  // },
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
-      // Build your palette here
       transparent: 'transparent',
       current: 'currentColor',
       bluegray: colors.blueGray,
@@ -15,25 +11,63 @@ module.exports = {
       gray: colors.gray,
       truegray: colors.trueGray,
       warmgray: colors.warmGray,
-      red: colors.red,
+      red: {
+        50: 'var(--red-50)',
+        100: 'var(--red-100)',
+        200: 'var(--red-200)',
+        300: 'var(--red-300)',
+        400: 'var(--red-400)',
+        500: 'var(--red-500)',
+        600: 'var(--red-600)',
+        700: 'var(--red-700)',
+        800: 'var(--red-800)',
+        900: 'var(--red-900)',
+      },
       orange: colors.orange,
       amber: colors.amber,
       yellow: colors.yellow,
       lime: colors.lime,
-      green: colors.green,
+      green: {
+        50: 'var(--green-50)',
+        100: 'var(--green-100)',
+        200: 'var(--green-200)',
+        300: 'var(--green-300)',
+        400: 'var(--green-400)',
+        500: 'var(--green-500)',
+        600: 'var(--green-600)',
+        700: 'var(--green-700)',
+        800: 'var(--green-800)',
+        900: 'var(--green-900)',
+      },
       emerald: colors.emerald,
       teal: colors.teal,
       cyan: colors.cyan,
       lightblue: colors.lightBlue,
-      blue: colors.blue,
+      blue: {
+        50: 'var(--blue-50)',
+        100: 'var(--blue-100)',
+        200: 'var(--blue-200)',
+        300: 'var(--blue-300)',
+        400: 'var(--blue-400)',
+        500: 'var(--blue-500)',
+        600: 'var(--blue-600)',
+        700: 'var(--blue-700)',
+        800: 'var(--blue-800)',
+        900: 'var(--blue-900)',
+      },
       indigo: colors.indigo,
       violet: colors.violet,
       purple: colors.purple,
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+      white: 'var(--white)',
+      black: 'var(--black)',
     },
     extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
       fontSize: {
         '3xs': '.5rem',
         '2xs': '.625rem',

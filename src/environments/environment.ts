@@ -9,6 +9,16 @@ export const environment: Environment = {
   name: 'dev',
   production: false,
   staging: false,
+  apiBasePath: 'https://',
+  keycloackConfig: {
+    clientId: '',
+    realm: '',
+    url: '',
+  },
+  keycloackTokenUrl: '',
+  keycloakLoginOptions: {
+    redirectUri: 'http://localhost:4200/#/main',
+  },
 };
 
 /*

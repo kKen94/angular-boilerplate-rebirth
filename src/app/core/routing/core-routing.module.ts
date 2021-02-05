@@ -1,23 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { AuthGuard } from '../guard/auth.guard';
+import { authRoutes } from '@module/auth/auth.routes';
+import { AuthModule } from '@module/auth/auth.module';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: '',
-  //   pathMatch: 'full',
-  //   canActivate: [AuthGuard],
-  // },
-  // { path: '**', redirectTo: '' },
   {
-    path: 'user',
+    path: 'main',
     canActivate: [AuthGuard],
     loadChildren: (): Promise<unknown> =>
-      import('src/app/module/user/user-layout.module').then(
-        m => m.UserLayoutModule,
-      ),
+      import('src/app/module/main/main.module').then(m => m.MainModule),
   },
+  authRoutes,
+
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '**', redirectTo: 'main' },
 ];
 
 const config: ExtraOptions = {
@@ -26,7 +23,7 @@ const config: ExtraOptions = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, config)],
+  imports: [RouterModule.forRoot(routes, config), AuthModule],
   exports: [RouterModule],
 })
 export class CoreRoutingModule {}

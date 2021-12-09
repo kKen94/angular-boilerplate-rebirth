@@ -1,6 +1,6 @@
 {
   "name": "angular-boilerplate",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "start": "cross-env NODE_ENV=dev ng serve --open",
     "build:dev": "cross-env NODE_ENV=dev ng build",
@@ -17,8 +17,7 @@
     "fix:prettier:staged": "pretty-quick --staged",
     "fix:style": "stylelint src/**/*.scss --fix",
     "report:prod": "cross-env NODE_ENV=prod ng build --prod --stats-json",
-    "analyze:prod": "yarn run report:prod && yarn run webpack-bundle-analyzer dist/stats.json",
-    "postinstall": "ngcc"
+    "analyze:prod": "yarn run report:prod && yarn run webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -32,11 +31,11 @@
     "@angular/platform-browser": "~11.1.0",
     "@angular/platform-browser-dynamic": "~11.1.0",
     "@angular/router": "~11.1.0",
-    "@kken94/ngx-progress": "^2.1.1",
+    "@kken94/ngx-progress": "^2.3.0",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
-    "keycloak-angular": "^8.1.0",
-    "keycloak-js": "^12.0.2",
+    "keycloak-angular": "^8.4.0",
+    "keycloak-js": "^15.0.2",
     "rxjs": "~6.6.0",
     "sweetalert2": "^10.13.0",
     "tslib": "^2.0.0",

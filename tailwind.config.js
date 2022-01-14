@@ -1,16 +1,19 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './src/index.html',
+    './src/**/*.{js,ts,html}',
+  ],
   theme: {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      bluegray: colors.blueGray,
-      coolgray: colors.coolGray,
-      gray: colors.gray,
-      truegray: colors.trueGray,
-      warmgray: colors.warmGray,
+      bluegray: colors.slate,
+      coolgray: colors.gray,
+      gray: colors.zinc,
+      truegray: colors.neutral,
+      warmgray: colors.stone,
       red: {
         50: 'var(--red-50)',
         100: 'var(--red-100)',
@@ -42,7 +45,7 @@ module.exports = {
       emerald: colors.emerald,
       teal: colors.teal,
       cyan: colors.cyan,
-      lightblue: colors.lightBlue,
+      lightblue: colors.sky,
       blue: {
         50: 'var(--blue-50)',
         100: 'var(--blue-100)',
@@ -222,9 +225,6 @@ module.exports = {
         '7/8': '87.5%',
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 };

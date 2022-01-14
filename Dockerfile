@@ -1,5 +1,5 @@
 #STAGE 1: build the angular application
-FROM node:14.15.3-alpine as builder
+FROM node:14.18.2-alpine as builder
 ARG APP_ARG
 WORKDIR /app
 COPY package.json yarn.lock ./

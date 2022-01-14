@@ -1,6 +1,5 @@
 $black: #293133;
 $white: #fff;
-
 $green-primary: (
   50: #eaf3ec,
   100: #cae1ce,
@@ -17,7 +16,6 @@ $green-primary: (
   a400: #4bff62,
   a700: #31ff4c,
 );
-
 $green-primary-contrast: (
   contrast: (
     50: $black,
@@ -36,7 +34,6 @@ $green-primary-contrast: (
     a700: $black,
   ),
 );
-
 $green-secondary: (
   50: #f1faea,
   100: #ddf2ca,
@@ -53,7 +50,6 @@ $green-secondary: (
   a400: #b6ff8e,
   a700: #a6ff74,
 );
-
 $green-secondary-contrast: (
   contrast: (
     50: $black,
@@ -72,7 +68,6 @@ $green-secondary-contrast: (
     a700: $black,
   ),
 );
-
 $blue-primary: (
   50: #e6eff0,
   100: #c0d8d8,
@@ -89,7 +84,6 @@ $blue-primary: (
   a400: #21fbff,
   a700: #08fbff,
 );
-
 $blue-primary-contrast: (
   contrast: (
     50: $black,
@@ -108,7 +102,6 @@ $blue-primary-contrast: (
     a700: $black,
   ),
 );
-
 $blue-secondary: (
   50: #e8f7f6,
   100: #c6ece8,
@@ -125,7 +118,6 @@ $blue-secondary: (
   a400: #6dffec,
   a700: #53ffe9,
 );
-
 $blue-secondary-contrast: (
   contrast: (
     50: $black,
@@ -144,7 +136,6 @@ $blue-secondary-contrast: (
     a700: $black,
   ),
 );
-
 $red-primary: (
   50: #ffebee,
   100: #ffcdd2,
@@ -161,7 +152,6 @@ $red-primary: (
   a400: #ff1744,
   a700: #d50000,
 );
-
 $red-primary-contrast: (
   contrast: (
     50: $black,
@@ -180,7 +170,6 @@ $red-primary-contrast: (
     a700: $white,
   ),
 );
-
 $green-primary-material: map-merge($green-primary, $green-primary-contrast);
 $green-secondary-material: map-merge(
   $green-secondary,
@@ -189,7 +178,6 @@ $green-secondary-material: map-merge(
 $blue-primary-material: map-merge($blue-primary, $blue-primary-contrast);
 $blue-secondary-material: map-merge($blue-secondary, $blue-secondary-contrast);
 $red-primary-material: map-merge($red-primary, $red-primary-contrast);
-
 $cc: (
   'green': $green-primary,
   'blue': $blue-primary,

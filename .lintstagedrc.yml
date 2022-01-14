@@ -1,0 +1,5 @@
+'src/**/*.{ts,js,html}':
+  - yarn #run fix:code
+
+'src/**/*.scss':
+  - yarn #run fix:style
